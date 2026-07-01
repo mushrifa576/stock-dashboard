@@ -43,6 +43,8 @@ def fetch_stock_data(ticker: str, period: str, interval: str) -> pd.DataFrame:
 
     except Exception as e:
         st.error(f"❌ Failed to fetch data for {ticker}: {e}")
+        import traceback
+        st.code(traceback.format_exc())
         return pd.DataFrame()
 
 def fetch_stock_info(ticker: str) -> dict:
